@@ -6,9 +6,15 @@ import {
   SafeAreaView,
   TextInput,
   Platform,
-  StatusBar
+  StatusBar,
+  ScrollView,
+  Image,
+  Dimensions
 } from 'react-native'
 import Icon from 'react-native-vector-icons/Ionicons'
+import Category from './components/Explore/Category'
+
+const { width, height } = Dimensions.get('window')
 
 class Explore extends Component {
   componentWillMount() {
@@ -52,6 +58,53 @@ class Explore extends Component {
               />
             </View>
           </View>
+          <ScrollView scrollEventThrottle={16}>
+            <View style={{ flex: 1, backgroundColor: 'white', paddingTop: 20 }}>
+              <Text
+                style={{
+                  fontSize: 24,
+                  fontWeight: '700',
+                  paddingHorizontal: 20
+                }}
+              >
+                What can we help you find, John?
+              </Text>
+
+              <View style={{ flex: 1, height: 130, marginTop: 20 }}>
+                <ScrollView
+                  horizontal={true}
+                  showsHorizontalScrollIndicator={false}
+                >
+                  <Category
+                    imageUrl={require('../assets/home.jpg')}
+                    name="Home"
+                  />
+                  <Category
+                    imageUrl={require('../assets/restaurant.jpg')}
+                    name="Restaurant"
+                  />
+                  <Category
+                    imageUrl={require('../assets/experiences.jpg')}
+                    name="Experience"
+                  />
+                </ScrollView>
+              </View>
+
+              <View style={{ marginTop: 40, paddingHorizontal: 20 }}>
+                <Text style={{ fontSize: 24, fontWeight: '700' }}>
+                  Introducing AirBnb Plus
+                </Text>
+                <Text style={{ fontWeight: '100', marginTop: 10 }}>
+                  A new selection of homes verified for quality & comfort
+                </Text>
+
+                <View style={{ width: width - 40, height: 200, marginTop: 20 }}>
+                  <Image 
+                  source={require('../assets/home.jpg')} style={{flex: 1, height: null, width: null, resizeMode: 'cover', borderRadius: 5, borderWidth: 1, borderColor: '#dddddd'}}/>
+                </View>
+              </View>
+            </View>
+          </ScrollView>
         </View>
       </SafeAreaView>
     )

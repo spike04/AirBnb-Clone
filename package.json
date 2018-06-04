@@ -1,4 +1,5 @@
 {
+  "name": "air-bnb-clone",
   "main": "node_modules/expo/AppEntry.js",
   "private": true,
   "dependencies": {
